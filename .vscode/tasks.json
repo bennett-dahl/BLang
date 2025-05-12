@@ -4,12 +4,12 @@
     {
       "label": "build",
       "type": "shell",
-      "command": "if not exist build mkdir build && cd build && cmake -G \"MinGW Makefiles\" .. && cmake --build .",
+      "command": "if not exist build mkdir build && cd build && cmake .. && cmake --build . --config Debug",
       "group": {
         "kind": "build",
         "isDefault": true
       },
-      "problemMatcher": ["$gcc"],
+      "problemMatcher": ["$msCompile"],
       "presentation": {
         "echo": true,
         "reveal": "always",
@@ -36,7 +36,7 @@
     {
       "label": "run",
       "type": "shell",
-      "command": "cd build && blang",
+      "command": "cd build\\Debug && blang.exe",
       "group": {
         "kind": "test",
         "isDefault": true

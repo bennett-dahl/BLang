@@ -38,7 +38,7 @@ cmake-build-*/
 
 # IDE files
 .idea/
-.vscode/
+# .vscode/  # We want to track VS Code settings for this project
 *.swp
 *.swo
 
