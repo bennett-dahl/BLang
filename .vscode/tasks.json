@@ -4,7 +4,7 @@
     {
       "label": "build",
       "type": "shell",
-      "command": "mkdir -p build && cd build && cmake .. && cmake --build .",
+      "command": "if not exist build mkdir build && cd build && cmake -G \"MinGW Makefiles\" .. && cmake --build .",
       "group": {
         "kind": "build",
         "isDefault": true
@@ -22,7 +22,7 @@
     {
       "label": "clean",
       "type": "shell",
-      "command": "rm -rf build",
+      "command": "if exist build rmdir /s /q build",
       "group": "build",
       "presentation": {
         "echo": true,
@@ -36,7 +36,7 @@
     {
       "label": "run",
       "type": "shell",
-      "command": "./build/blang",
+      "command": "cd build && blang",
       "group": {
         "kind": "test",
         "isDefault": true
