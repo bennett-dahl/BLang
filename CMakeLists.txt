@@ -9,8 +9,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # Main library
 add_library(blang_lib
-    # Source files will be added as they are implemented in the lessons
-    # src/lexer.cpp
+    src/lexer.cpp
+    # Additional source files will be added as they are implemented in the lessons
     # src/parser.cpp
     # src/ast.cpp
     # src/semantics.cpp

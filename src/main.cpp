@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <blang/lexer.h>
 
 int main(int argc, char *argv[])
 {
@@ -33,8 +34,27 @@ int main(int argc, char *argv[])
     else
     {
         // Treat as a script file
-        std::cout << "File execution not implemented yet." << std::endl;
-        std::cout << "Would run: " << arg1 << std::endl;
+        std::cout << "Attempting to read file: " << arg1 << std::endl;
+
+        // Try to read the file
+        std::ifstream file(arg1);
+        if (!file.is_open())
+        {
+            std::cerr << "Error: Could not open file " << arg1 << std::endl;
+            return 1;
+        }
+
+        // Read the entire file content
+        std::stringstream buffer;
+        buffer << file.rdbuf();
+        std::string source = buffer.str();
+
+        // Create a lexer and tokenize the input
+        blang::Lexer lexer;
+        auto tokens = lexer.tokenize(source);
+
+        std::cout << "Tokenized " << tokens.size() - 1 << " tokens (plus EOF)" << std::endl;
+
         return 0;
     }
 }

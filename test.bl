@@ -1,0 +1,30 @@
+// This is a test BLang file
+
+// Define a simple class
+class Person
+{
+    // Properties
+    string name;
+    int age;
+
+    // Constructor
+    init(string n, int a)
+    {
+        name = n;
+        age = a;
+    }
+
+    // Method
+    void sayHello()
+    {
+        print("Hello, my name is " + name + " and I am " + age + " years old.");
+    }
+}
+
+// Main program
+void
+main()
+{
+    Person p = new Person("John", 30);
+    p.sayHello();
+}

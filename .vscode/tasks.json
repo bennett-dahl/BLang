@@ -4,7 +4,11 @@
     {
       "label": "build",
       "type": "shell",
-      "command": "if not exist build mkdir build && cd build && cmake .. && cmake --build . --config Debug",
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && mkdir build 2>NUL & cd build && cmake .. && cmake --build . --config Debug"
+      ],
       "group": {
         "kind": "build",
         "isDefault": true
@@ -22,7 +26,11 @@
     {
       "label": "clean",
       "type": "shell",
-      "command": "if exist build rmdir /s /q build",
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && if exist build rmdir /s /q build"
+      ],
       "group": "build",
       "presentation": {
         "echo": true,
@@ -36,7 +44,11 @@
     {
       "label": "run",
       "type": "shell",
-      "command": "cd build\\Debug && blang.exe",
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && cd build\\Debug && blang.exe"
+      ],
       "group": {
         "kind": "test",
         "isDefault": true
